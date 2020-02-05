@@ -10,7 +10,11 @@ import com.gregory.retailstore.system.db.product.ProductDto
  */
 class ProductApi {
 
-    fun fetchAllProducts(): Array<ProductDto> {
+    /**
+     * Since this mocks an api call, I've added [suspend] to avoid callers
+     * calling this on the main thread.
+     */
+    suspend fun fetchAllProducts(): Array<ProductDto> {
         return Utils.loadJson(mockProductsFileName)?.let { jsonString ->
             Gson().fromJson(jsonString, emptyArray<ProductDto>().javaClass)
         } ?: emptyArray()

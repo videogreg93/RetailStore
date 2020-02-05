@@ -27,13 +27,6 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        // TODO REMOVE THIS
-        val api = ProductApi()
-        val products = api.fetchAllProducts()
-        products.forEach {
-            Log.d("productTest", it.name)
-        }
-
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
