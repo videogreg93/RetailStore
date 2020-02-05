@@ -34,5 +34,9 @@
         android:id="@+id/productDetailFragment"
         android:name="com.gregory.retailstore.ui.productDetails.ProductDetailFragment"
         android:label="Product Detail"
-        tools:layout="@layout/fragment_product_detail" />
+        tools:layout="@layout/fragment_product_detail" >
+        <argument
+            android:name="product"
+            app:argType="com.gregory.retailstore.system.db.product.ProductDto" />
+    </fragment>
 </navigation>

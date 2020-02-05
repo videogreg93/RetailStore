@@ -1,8 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.productDetails.ProductDetailFragment">
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/product_detail_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/ic_launcher_background"
+        app:layout_constraintDimensionRatio="H, 16:9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/product_detail_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/productTitle"
+        tools:text="Product Detail"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/product_detail_image"/>
+
+    <TextView
+        android:id="@+id/product_detail_category"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Electronics"
+        app:layout_constraintStart_toStartOf="@id/product_detail_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/product_detail_title"
+        />
+
+    <TextView
+        android:id="@+id/product_detail_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="79.99$"
+        android:textAppearance="@style/productPrice"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/product_detail_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/product_detail_category"/>
+
+    <TextView
+        android:id="@+id/product_detail_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="
+Paragraphs
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+
+Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis."
+        app:layout_constraintStart_toStartOf="@id/product_detail_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/product_detail_price"
+        />
+
+    <Button
+        android:id="@+id/product_detail_cart_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_to_cart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/product_detail_description"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

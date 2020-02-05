@@ -38,7 +38,7 @@ class ProductFragment : Fragment() {
     }
 
     private fun onItemClicked(item: ProductDto) {
-        // TODO send item to details fragment
-        findNavController().navigate(R.id.action_navigation_home_to_productDetailFragment)
+        val action = ProductFragmentDirections.actionNavigationHomeToProductDetailFragment(item)
+        findNavController().navigate(action)
     }
 }

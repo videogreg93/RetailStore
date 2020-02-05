@@ -6,4 +6,5 @@
     <string name="products_title">Products</string>
     <string name="category_electronics">Electronics</string>
     <string name="category_furniture">Furniture</string>
+    <string name="add_to_cart">Add to Cart</string>
 </resources>
