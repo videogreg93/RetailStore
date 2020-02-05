@@ -40,6 +40,4 @@ class ProductDetailFragment : Fragment() {
         product_detail_category.text = getString(productDto.category.stringId)
         product_detail_price.text = productDto.price.toString()
     }
-
-
 }

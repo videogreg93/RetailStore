@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.gregory.retailstore.R
 
+// Todo add description
 @Entity
 data class ProductModel(
     @PrimaryKey var id: Long = 0,

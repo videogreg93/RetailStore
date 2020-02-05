@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 
-// TODO make parcelable
+// TODO add description
 class ProductDto(
     val id: Long,
     val name: String,
