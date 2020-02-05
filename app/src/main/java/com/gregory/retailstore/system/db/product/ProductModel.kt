@@ -3,6 +3,7 @@ package com.gregory.retailstore.system.db.product
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.gregory.retailstore.R
 
 @Entity
 data class ProductModel(
@@ -13,9 +14,9 @@ data class ProductModel(
     @ColumnInfo(name = fImageUrl) var imageUrl: String? = null
 ) {
 
-    enum class CATEGORY {
-        ELECTRONICS,
-        FURNITURE
+    enum class CATEGORY(val stringId: Int) {
+        ELECTRONICS(R.string.category_electronics),
+        FURNITURE(R.string.category_furniture)
     }
 
     companion object Fields {

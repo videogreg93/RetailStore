@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Retail Store</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_products">Products</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_about">About</string>
     <string name="products_title">Products</string>
+    <string name="category_electronics">Electronics</string>
+    <string name="category_furniture">Furniture</string>
 </resources>

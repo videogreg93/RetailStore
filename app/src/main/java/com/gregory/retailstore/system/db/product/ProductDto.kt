@@ -1,5 +1,7 @@
 package com.gregory.retailstore.system.db.product
 
+
+// TODO make parcelable
 data class ProductDto(
     val id: Long,
     val name: String,
