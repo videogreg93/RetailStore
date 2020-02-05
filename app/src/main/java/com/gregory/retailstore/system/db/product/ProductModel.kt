@@ -6,11 +6,11 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class ProductModel(
-    @PrimaryKey val id: Long,
-    @ColumnInfo(name = fields.name) val name: String,
-    @ColumnInfo(name = fields.category) val category: CATEGORY,
-    @ColumnInfo(name = fields.price) val price: Float,
-    @ColumnInfo(name = fields.imageUrl) val imageUrl: String?
+    @PrimaryKey var id: Long = 0,
+    @ColumnInfo(name = fnameN) var name: String = "",
+    @ColumnInfo(name = fCategory) var category: CATEGORY = CATEGORY.ELECTRONICS,
+    @ColumnInfo(name = fPrice) var price: Float = 0f,
+    @ColumnInfo(name = fImageUrl) var imageUrl: String? = null
 ) {
 
     enum class CATEGORY {
@@ -18,11 +18,11 @@ data class ProductModel(
         FURNITURE
     }
 
-    companion object fields {
-        const val name = "name"
-        const val category = "category"
-        const val price = "price"
-        const val imageUrl = "image"
+    companion object Fields {
+        const val fnameN = "name"
+        const val fCategory = "category"
+        const val fPrice = "price"
+        const val fImageUrl = "image"
     }
 
 }

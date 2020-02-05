@@ -1,0 +1,44 @@
+[
+  {
+    "id": 0,
+    "name": "Microwave Oven",
+    "category": "ELECTRONICS",
+    "price" : 29.99,
+    "imageUrl" : "www.google.com"
+  },
+  {
+    "id": 1,
+    "name": "Television",
+    "category": "ELECTRONICS",
+    "price" : 999.99,
+    "imageUrl" : "www.google.com"
+  },
+  {
+    "id": 2,
+    "name": "Vacuum Cleaner",
+    "category": "ELECTRONICS",
+    "price" : 349.65,
+    "imageUrl" : "www.google.com"
+  },
+  {
+    "id": 3,
+    "name": "Table",
+    "category": "FURNITURE",
+    "price" : 450,
+    "imageUrl" : "www.google.com"
+  },
+  {
+    "id": 4,
+    "name": "Chair",
+    "category": "FURNITURE",
+    "price" : 45.67,
+    "imageUrl" : "www.google.com"
+  },
+  {
+    "id": 5,
+    "name": "Almirah",
+    "category": "FURNITURE",
+    "price" : 914.15,
+    "imageUrl" : "www.google.com"
+  }
+]
