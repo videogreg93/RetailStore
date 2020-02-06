@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.gregory.retailstore.R
 import com.gregory.retailstore.system.db.product.ProductDto
+import com.gregory.retailstore.system.toPrice
 import kotlinx.android.synthetic.main.fragment_product_detail.*
 
 class ProductDetailFragment : Fragment(), ProductDetailPresenter.View {
@@ -41,7 +42,7 @@ class ProductDetailFragment : Fragment(), ProductDetailPresenter.View {
 
         product_detail_title.text = productDto.name
         product_detail_category.text = getString(productDto.category.stringId)
-        product_detail_price.text = productDto.price.toString()
+        product_detail_price.text = productDto.price.toPrice()
 
         product_detail_cart_button.setOnClickListener {
             presenter.addProductToCart(productDto)

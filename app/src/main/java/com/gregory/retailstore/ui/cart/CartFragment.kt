@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gregory.retailstore.R
 import com.gregory.retailstore.system.db.cart.CartDto
 import com.gregory.retailstore.system.toPrice
-import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.android.synthetic.main.fragment_cart.*
 
 class CartFragment : Fragment(), CartPresenter.View {
     override val presenter: CartPresenter = CartPresenter(this)
@@ -27,7 +27,7 @@ class CartFragment : Fragment(), CartPresenter.View {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+        return inflater.inflate(R.layout.fragment_cart, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
