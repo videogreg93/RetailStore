@@ -11,7 +11,7 @@ import com.gregory.retailstore.system.db.cart.CartDto
 import com.gregory.retailstore.system.toPrice
 import kotlinx.android.synthetic.main.item_cart.view.*
 
-class CartAdapter(val onQuantityChange: ((CartDto) -> Unit)) :
+class CartAdapter(val onQuantityChange: ((CartDto) -> Unit), val listener: ((CartDto) -> Unit)) :
     ListAdapter<CartDto, CartAdapter.ProductViewHolder>(CartDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -37,6 +37,9 @@ class CartAdapter(val onQuantityChange: ((CartDto) -> Unit)) :
             view.cart_item_add_button.setOnClickListener {
                 changeQuantity(item,1)
             }
+            view.setOnClickListener {
+                listener(item)
+            }
         }
 
         fun changeQuantity(item: CartDto, quantityChange: Int) {
@@ -54,7 +57,7 @@ class CartAdapter(val onQuantityChange: ((CartDto) -> Unit)) :
         }
 
         override fun areContentsTheSame(oldItem: CartDto, newItem: CartDto): Boolean {
-            return true // We never want to fade and redraw the whole viewholder
+            return oldItem.quantity == newItem.quantity
         }
     }
 }

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gregory.retailstore.R
 import com.gregory.retailstore.system.db.cart.CartDto
@@ -18,7 +19,7 @@ class CartFragment : Fragment(), CartPresenter.View {
 
     private val cartViewModel: CartViewModel by activityViewModels()
 
-    private val cartAdapter = CartAdapter(::onQuantityChanged)
+    private val cartAdapter = CartAdapter(::onQuantityChanged,::onItemClicked)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,10 +36,17 @@ class CartFragment : Fragment(), CartPresenter.View {
         cartViewModel.cart.observe(viewLifecycleOwner, Observer { cart ->
             cartAdapter.submitList(cart)
         })
+
+        // TODO add total price here.
     }
 
     private fun onQuantityChanged(cartDto: CartDto) {
         presenter.updateQuantity(cartDto)
+    }
+
+    private fun onItemClicked(cartDto: CartDto) {
+        val action = CartFragmentDirections.actionNavigationDashboardToProductDetailFragment(cartDto.productDto)
+        findNavController().navigate(action)
     }
 
     override fun onError() {
