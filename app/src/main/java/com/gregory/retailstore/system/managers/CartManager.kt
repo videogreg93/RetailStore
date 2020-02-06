@@ -1,9 +1,8 @@
 package com.gregory.retailstore.system.managers
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import com.gregory.retailstore.system.db.cart.CartDao
 import com.gregory.retailstore.system.db.cart.CartDto
 import com.gregory.retailstore.system.db.cart.CartModel
@@ -47,13 +46,20 @@ class CartManager(private val cartDao: CartDao, private val productManager: Prod
         }
     }
 
-    fun updateCart(cartDto: CartDto) {
-        CoroutineScope(Dispatchers.Default).launch {
+    /**
+     * @return returns true if successful, false otherwise
+     */
+    suspend fun updateCart(cartDto: CartDto): Boolean {
+        return try {
             if (cartDto.quantity == 0) {
                 cartDao.delete(cartDto.productDto.id)
             } else {
                 cartDao.insert(CartModel(cartDto.productDto.id, cartDto.quantity))
             }
+            true
+        } catch (e: Exception) {
+            Log.d(CartManager::class.toString(), e.message)
+            false
         }
     }
 

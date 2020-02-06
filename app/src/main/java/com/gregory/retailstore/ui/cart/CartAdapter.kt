@@ -32,14 +32,18 @@ class CartAdapter(val onQuantityChange: ((CartDto) -> Unit)) :
 
             // Listeners
             view.cart_item_remove_button.setOnClickListener {
-                item.quantity -= 1
-                onQuantityChange(item)
+                changeQuantity(item,-1)
             }
             view.cart_item_add_button.setOnClickListener {
-                item.quantity += 1
-                onQuantityChange(item)
+                changeQuantity(item,1)
             }
+        }
 
+        fun changeQuantity(item: CartDto, quantityChange: Int) {
+            item.quantity += quantityChange
+            view.cart_item_quantity.text = item.quantity.toString()
+            view.cart_item_price.text = (item.quantity * item.productDto.price).toPrice()
+            onQuantityChange(item)
         }
     }
 
@@ -50,7 +54,7 @@ class CartAdapter(val onQuantityChange: ((CartDto) -> Unit)) :
         }
 
         override fun areContentsTheSame(oldItem: CartDto, newItem: CartDto): Boolean {
-            return (oldItem.productDto == newItem.productDto) && (oldItem.quantity == newItem.quantity)
+            return true // We never want to fade and redraw the whole viewholder
         }
     }
 }
