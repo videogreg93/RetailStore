@@ -12,7 +12,7 @@ interface ProductDao {
     fun getAllProduct(): LiveData<List<ProductModel>>
 
     @Query("SELECT * FROM PRODUCTMODEL WHERE id = :id LIMIT 1")
-    fun findById(id: Long): LiveData<ProductModel?>
+    fun findById(id: Long): ProductModel?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertProducts(vararg productModel: ProductModel)

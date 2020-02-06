@@ -27,4 +27,10 @@ class ProductManager(private val api: ProductApi, private val dao: ProductDao) {
             products.map { ProductDto.fromModel(it) }
         }
     }
+
+    suspend fun getProductById(id: Long): ProductDto? {
+        return dao.findById(id)?.let {
+            ProductDto.fromModel(it)
+        }
+    }
 }

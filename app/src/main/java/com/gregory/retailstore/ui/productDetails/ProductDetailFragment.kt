@@ -2,9 +2,11 @@ package com.gregory.retailstore.ui.productDetails
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -12,7 +14,8 @@ import com.gregory.retailstore.R
 import com.gregory.retailstore.system.db.product.ProductDto
 import kotlinx.android.synthetic.main.fragment_product_detail.*
 
-class ProductDetailFragment : Fragment() {
+class ProductDetailFragment : Fragment(), ProductDetailPresenter.View {
+    override var presenter: ProductDetailPresenter = ProductDetailPresenter(this)
 
     val args: ProductDetailFragmentArgs by navArgs()
     var product: ProductDto? = null
@@ -39,5 +42,22 @@ class ProductDetailFragment : Fragment() {
         product_detail_title.text = productDto.name
         product_detail_category.text = getString(productDto.category.stringId)
         product_detail_price.text = productDto.price.toString()
+
+        product_detail_cart_button.setOnClickListener {
+            presenter.addProductToCart(productDto)
+        }
+    }
+
+    override fun onProductAddedSuccess(product: ProductDto) {
+        Toast.makeText(
+            context,
+            getString(R.string.product_detail_added_to_cart),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    override fun onProductAddedFailed(product: ProductDto) {
+        Toast.makeText(context, getString(R.string.product_detail_error), Toast.LENGTH_SHORT).show()
+        Log.e(ProductDetailFragment::class.toString(), "Could not add ${product.name} to cart")
     }
 }

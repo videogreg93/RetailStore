@@ -7,9 +7,11 @@ internal object RetailStoreManager {
     lateinit var databaseManager: DatabaseManager
 
     lateinit var productManager: ProductManager
+    lateinit var cartManager: CartManager
 
     fun initMainServices(context: Context) {
         databaseManager = DatabaseManager.init(context)
         productManager = ProductManager(ProductApi(), databaseManager.productDao)
+        cartManager = CartManager(databaseManager.cartDao, productManager)
     }
 }

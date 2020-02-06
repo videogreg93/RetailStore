@@ -2,6 +2,7 @@ package com.gregory.retailstore.system
 
 import java.io.IOException
 import java.nio.charset.Charset
+import java.text.DecimalFormat
 
 object Utils {
     fun loadJson(fileName: String): String? {
@@ -19,3 +20,5 @@ object Utils {
         }
     }
 }
+
+fun Float.toPrice() = DecimalFormat("0.00 '$'").format(this).replace(".", ",")
