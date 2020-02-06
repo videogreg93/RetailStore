@@ -11,7 +11,7 @@
     "name": "Television",
     "category": "ELECTRONICS",
     "price" : 999.99,
-    "imageUrl" : "https://picsum.photos/seed/1/400/300"
+    "imageUrl" : "https://picsum.photos/seed/10/400/300"
   },
   {
     "id": 2,

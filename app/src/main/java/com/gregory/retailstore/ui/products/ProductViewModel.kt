@@ -7,7 +7,7 @@ import com.gregory.retailstore.system.managers.RetailStoreManager
 class ProductViewModel : ViewModel() {
     private val productManager = RetailStoreManager.productManager
 
-    val products by lazy { productManager.getLiveProducts() }
+    val products by lazy { productManager.getSortedLiveProducts() }
 
     init {
         Log.d("ProductViewModel","Product ViewModel Created")

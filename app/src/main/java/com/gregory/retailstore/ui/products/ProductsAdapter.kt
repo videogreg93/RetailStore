@@ -30,7 +30,6 @@ class ProductsAdapter(val listener: ((ProductDto) -> Unit)) :
 
     inner class ProductViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: ProductDto) {
-            // TODO add an error drawable
             Glide.with(view)
                 .load(item.imageUrl)
                 .listener(object : RequestListener<Drawable> {
@@ -61,7 +60,6 @@ class ProductsAdapter(val listener: ((ProductDto) -> Unit)) :
             view.product_category.text = view.context.getString(item.category.stringId)
             view.product_price.text = item.price.toString()
 
-            // TODO change this listener
             view.setOnClickListener {
                 listener.invoke(item)
             }

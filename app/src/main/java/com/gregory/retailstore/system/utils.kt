@@ -21,4 +21,4 @@ object Utils {
     }
 }
 
-fun Float.toPrice() = DecimalFormat("0.00 '$'").format(this).replace(".", ",")
+fun Number.toPrice() = DecimalFormat("0.00 '$'").format(this).replace(".", ",")

@@ -5,15 +5,25 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_notifications"
+        android:id="@+id/about_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:text="Made by Grégory Fournier"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+        android:id="@+id/about_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="gregory.fournier@protonmail.com"
+        android:linksClickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/about_title"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

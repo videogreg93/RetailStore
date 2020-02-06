@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gregory.retailstore.R
 import com.gregory.retailstore.system.db.cart.CartDto
+import com.gregory.retailstore.system.toPrice
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 class CartFragment : Fragment(), CartPresenter.View {
@@ -35,9 +36,11 @@ class CartFragment : Fragment(), CartPresenter.View {
         cart_recyclerview.adapter = cartAdapter
         cartViewModel.cart.observe(viewLifecycleOwner, Observer { cart ->
             cartAdapter.submitList(cart)
+            val totalPrice = cart.sumByDouble { (it.productDto.price * it.quantity).toDouble() }.toPrice()
+            cart_total_price.text = getString(R.string.cart_total_price, totalPrice)
+//            cart_total_price.text = totalPrice
         })
 
-        // TODO add total price here.
     }
 
     private fun onQuantityChanged(cartDto: CartDto) {

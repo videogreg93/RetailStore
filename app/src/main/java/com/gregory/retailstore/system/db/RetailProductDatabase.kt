@@ -13,7 +13,7 @@ import com.gregory.retailstore.system.db.product.ProductModel
 
 @Database(
     entities = [ProductModel::class, CartModel::class],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 @TypeConverters(

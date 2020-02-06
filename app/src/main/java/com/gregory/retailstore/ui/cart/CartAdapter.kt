@@ -37,7 +37,7 @@ class CartAdapter(val onQuantityChange: ((CartDto) -> Unit), val listener: ((Car
             view.cart_item_add_button.setOnClickListener {
                 changeQuantity(item,1)
             }
-            view.setOnClickListener {
+            view.cart_item_title.setOnClickListener {
                 listener(item)
             }
         }

@@ -22,9 +22,12 @@ class ProductManager(private val api: ProductApi, private val dao: ProductDao) {
         }
     }
 
-    fun getLiveProducts(): LiveData<List<ProductDto>> {
+    /**
+     * Returns a live data of all products, sorted by their category
+     */
+    fun getSortedLiveProducts(): LiveData<List<ProductDto>> {
         return Transformations.map(dao.getAllProduct()) { products ->
-            products.map { ProductDto.fromModel(it) }
+            products.map { ProductDto.fromModel(it) }.sortedBy { it.category }
         }
     }
 
