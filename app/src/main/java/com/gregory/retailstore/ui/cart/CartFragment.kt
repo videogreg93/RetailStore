@@ -38,7 +38,6 @@ class CartFragment : Fragment(), CartPresenter.View {
             cartAdapter.submitList(cart)
             val totalPrice = cart.sumByDouble { (it.productDto.price * it.quantity).toDouble() }.toPrice()
             cart_total_price.text = getString(R.string.cart_total_price, totalPrice)
-//            cart_total_price.text = totalPrice
         })
 
     }

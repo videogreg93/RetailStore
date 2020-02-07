@@ -32,17 +32,17 @@ class CartAdapter(val onQuantityChange: ((CartDto) -> Unit), val listener: ((Car
 
             // Listeners
             view.cart_item_remove_button.setOnClickListener {
-                changeQuantity(item,-1)
+                changeQuantity(item, -1)
             }
             view.cart_item_add_button.setOnClickListener {
-                changeQuantity(item,1)
+                changeQuantity(item, 1)
             }
             view.cart_item_title.setOnClickListener {
                 listener(item)
             }
         }
 
-        fun changeQuantity(item: CartDto, quantityChange: Int) {
+        private fun changeQuantity(item: CartDto, quantityChange: Int) {
             item.quantity += quantityChange
             view.cart_item_quantity.text = item.quantity.toString()
             view.cart_item_price.text = (item.quantity * item.productDto.price).toPrice()

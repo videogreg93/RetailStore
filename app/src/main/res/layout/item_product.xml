@@ -27,15 +27,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
-        <ProgressBar
-            android:id="@+id/product_image_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/product_image"
-            app:layout_constraintBottom_toBottomOf="@id/product_image"
-            app:layout_constraintStart_toStartOf="@id/product_image"
-            app:layout_constraintEnd_toEndOf="@id/product_image"/>
-
         <TextView
             android:id="@+id/product_title"
             android:layout_width="0dp"

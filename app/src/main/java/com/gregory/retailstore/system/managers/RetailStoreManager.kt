@@ -4,7 +4,7 @@ import android.content.Context
 import com.gregory.retailstore.system.api.ProductApi
 
 internal object RetailStoreManager {
-    lateinit var databaseManager: DatabaseManager
+    private lateinit var databaseManager: DatabaseManager
 
     lateinit var productManager: ProductManager
     lateinit var cartManager: CartManager

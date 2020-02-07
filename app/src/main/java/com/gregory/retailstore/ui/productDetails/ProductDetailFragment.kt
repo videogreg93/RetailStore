@@ -18,14 +18,13 @@ import kotlinx.android.synthetic.main.fragment_product_detail.*
 class ProductDetailFragment : Fragment(), ProductDetailPresenter.View {
     override var presenter: ProductDetailPresenter = ProductDetailPresenter(this)
 
-    val args: ProductDetailFragmentArgs by navArgs()
-    var product: ProductDto? = null
+    private val args: ProductDetailFragmentArgs by navArgs()
+    private var product: ProductDto? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_product_detail, container, false)
     }
 

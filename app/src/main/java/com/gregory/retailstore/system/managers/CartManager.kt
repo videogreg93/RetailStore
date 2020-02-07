@@ -62,9 +62,4 @@ class CartManager(private val cartDao: CartDao, private val productManager: Prod
             false
         }
     }
-
-    suspend fun clearCart() {
-        cartDao.deleteAll()
-    }
-
 }

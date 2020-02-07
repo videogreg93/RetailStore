@@ -10,4 +10,5 @@
     <string name="product_detail_added_to_cart">Added to cart</string>
     <string name="product_detail_error">Could not add to cart</string>
     <string name="cart_total_price">Total Price: %1$s</string>
+    <string name="lorem_ipsum">Paragraphs Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</string>
 </resources>

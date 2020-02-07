@@ -10,7 +10,6 @@ class ProductViewModel : ViewModel() {
     val products by lazy { productManager.getSortedLiveProducts() }
 
     init {
-        Log.d("ProductViewModel","Product ViewModel Created")
         productManager.fetchAllProducts()
     }
 }
